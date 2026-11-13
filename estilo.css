@@ -1,0 +1,305 @@
+/* Biblioteca do Bairro
+   Inês
+*/
+
+
+/* ==============================
+   EXERCÍCIO 04 - MODELO DE CAIXA
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #EAF5FF;
+    color: #173B63;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    font-family: "Lora", Georgia, serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+.etiqueta {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #2563A6;
+}
+
+.destaque {
+    color: #2563A6;
+    font-weight: bold;
+}
+
+nav a {
+    color: #2563A6;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #173B63;
+}
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+header, footer {
+    padding: 1rem 1.5rem;
+}
+
+section {
+    padding: 1.5rem 0;
+}
+
+
+/* ==============================
+   EXERCÍCIO 05 - DAR COR E RELEVO
+   ============================== */
+
+header {
+    background: #173B63;
+    color: #FFFFFF;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+header h1 {
+    margin-top: 0;
+    color: #FFFFFF;
+}
+
+nav {
+    padding: 0.5rem 1.5rem;
+    background: #D6EAFE;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aviso {
+    background: linear-gradient(90deg, #B8D9F5, #E0F0FF);
+    color: #173B63;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+mark {
+    background: #C5E2FA;
+    color: #173B63;
+}
+
+.cartao {
+    padding: 1.2rem;
+    border: 1px solid #C5DDF2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(23 59 99 / 0.1);
+    background: #FFFFFF;
+}
+
+.cartao h3 {
+    color: #2563A6;
+}
+
+.botao {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: #2563A6;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.botao:hover {
+    background: #173B63;
+}
+
+.equipa img {
+    border-radius: 50%;
+}
+
+
+/* ==============================
+   EXERCÍCIO 06 - FLEXBOX
+   ============================== */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.cartoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cartao {
+    flex: 1 1 250px;
+}
+
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
+/* ==============================
+   EXERCÍCIO 07 - GRID
+   ============================== */
+
+/* Catálogo */
+
+.catalogo {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.catalogo .destaque {
+    grid-column: span 2;
+}
+
+/* Áreas da página */
+
+header {
+    grid-area: topo;
+}
+
+nav {
+    grid-area: menu;
+}
+
+main {
+    grid-area: conteudo;
+}
+
+aside {
+    grid-area: lateral;
+    padding: 2rem;
+}
+
+footer {
+    grid-area: rodape;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    background: #173B63;
+    color: #FFFFFF;
+}
+
+
+/* ==============================
+   EXERCÍCIO 08 - DESIGN RESPONSIVO
+   ============================== */
+
+/* BASE: TELEMÓVEL */
+
+body {
+    display: block;
+}
+
+.cabecalho {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+nav ul {
+    flex-wrap: wrap;
+}
+
+.catalogo {
+    grid-template-columns: 1fr;
+}
+
+.catalogo .destaque {
+    grid-column: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .cabecalho {
+        flex-direction: row;
+    }
+
+    .catalogo {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .catalogo .destaque {
+        grid-column: span 2;
+    }
+
+}
+
+
+/* COMPUTADOR */
+
+@media (min-width: 1024px) {
+
+    body {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 280px;
+
+        grid-template-areas:
+            "topo topo"
+            "menu menu"
+            "conteudo lateral"
+            "rodape rodape";
+    }
+
+    .catalogo {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .catalogo .destaque {
+        grid-column: span 2;
+    }
+
+}
